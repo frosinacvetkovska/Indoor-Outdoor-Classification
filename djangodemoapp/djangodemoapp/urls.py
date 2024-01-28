@@ -15,9 +15,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import include, path
+from django.urls import path
+from demoapp.views import predict
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
-path('', include('demoapp.urls')),
     path('admin/', admin.site.urls),
-]
+    path('predict/', predict, name='predict'),
+    path('', predict, name='default_predict'),  # Specify a name for the empty path
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

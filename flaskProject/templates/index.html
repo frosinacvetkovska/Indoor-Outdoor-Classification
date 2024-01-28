@@ -1,45 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="UTF-8">
-    <title>Indoor-Outdoor Classification Algorithm</title>
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <title>Image Classification Algorithm</title>
 </head>
-
-<style>
-    h1{
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: larger;
-        text-align: center;
-
-}
-
-#select{
-   margin-left: 20%;
-}
-</style>
-
 <body>
+ <h1 class="text-center">Indoor-Outdoor Image Classification Algorithm</h1>
 
-<h1>Indoor-Outdoor Classification Algorithm</h1>
+  <form class="p-3 text-center" action='/', method="post" enctype="multipart/form-data">
+            <input class="form-control" type="file" name="imagefile" >
+<br>
+ <h4>Select a model:</h4>
+      <select name="model" id="model">
 
-<div id="select">
-    <p>Choose a classification model:</p>
-
-    <select name="model" id="model">
           <option value="resnet50v1-sequence" id="resnet50v1-sequence">ResNet50V1 Sequence</option>
           <option value="resnet50v1-dropout" id="resnet50v1-dropout">ResNet50V1 Dropout</option>
           <option value="resnet50v2-sequence" id="resnet50v2-sequence">ResNet50V2 Sequence </option>
           <option value="resnet50v2-dropout" id="resnet50v2-dropout">ResNet50V2 Dropout</option>
           <option value="inception" id="inception">Inception V3</option>
     </select>
-    <p>Insert a link to the photograph that you want to be classified </p>
- <input type="text" >
-    <br>
-    <br>
- <input type="submit" value="Submit">
+<br>
+      <br>
+      <input class="btn btn-primary mt-3"type="submit" value="Predict Image" >
+        </form>
 
-</div>
+
+
 </body>
 </html>
